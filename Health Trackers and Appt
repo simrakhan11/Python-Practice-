@@ -1,0 +1,51 @@
+# --- 9. Medication Tracker ---
+medications = ["Metformin", "Atorvastatin", "Lisinopril"]
+def track_medications(meds):
+    for med in meds:
+        print(f"Reminder: Please take your medication - {med}.")
+track_medications(medications)
+
+# --- 10. Simple Symptom Checker ---
+def symptom_checker(symptom):
+    if symptom.lower() == "fever":
+        return "Possible infection. Please rest and monitor your temperature."
+    elif symptom.lower() == "headache":
+        return "Drink water and rest. Consult if it persists."
+    else:
+        return "Please consult a doctor for further diagnosis."
+
+print(symptom_checker("fever"))
+
+# --- 11. Lab Results Average ---
+blood_glucose_levels = [110, 105, 99, 115]
+average = sum(blood_glucose_levels) / len(blood_glucose_levels)
+print(f"Average blood glucose level: {round(average, 2)} mg/dL")
+
+# --- 12. Basic Appointment Scheduler ---
+def schedule_appointment(name, time):
+    appointment = {"patient": name, "time": time}
+    return f"Appointment scheduled for {appointment['patient']} at {appointment['time']}."
+
+print(schedule_appointment("Simra", "2:00 PM"))
+
+# --- 13. Monitor Vital Signs Until Stable ---
+def monitor_heart_rate():
+    heart_rate = 120
+    while heart_rate > 100:
+        print(f"⚠️ Heart rate is {heart_rate} bpm. Monitoring...")
+        heart_rate -= 5
+        time.sleep(1)
+    print("✅ Heart rate is stable.")
+
+# Uncomment to test
+# monitor_heart_rate()
+
+# --- 14. Random Health Tip Generator ---
+import random
+health_tips = [
+    "Stay hydrated.",
+    "Take regular walks.",
+    "Eat more vegetables.",
+    "Get enough sleep."
+]
+print("💡 Health Tip:", random.choice(health_tips))
