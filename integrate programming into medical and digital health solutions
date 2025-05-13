@@ -1,0 +1,81 @@
+# Simra Khan's Python Practice: Healthcare & Digital Health Context
+# All examples are written as part of personal learning to integrate programming into medical and digital health solutions
+
+# --- 1. Basic Functions and Strings ---
+def greet_patient(name):
+    return f"Hello, {name}! Welcome to your health portal."
+
+print(greet_patient("Simra"))
+
+# --- 2. Simple Math and BMI Calculator ---
+def calculate_bmi(weight_kg, height_cm):
+    height_m = height_cm / 100
+    bmi = weight_kg / (height_m ** 2)
+    return round(bmi, 2)
+
+print("BMI:", calculate_bmi(50, 160))
+
+# --- 3. Learning Time Calculator ---
+def learn_python_for_fhir(number_of_days, time_each_day_taken):
+    total_duration = number_of_days * time_each_day_taken
+    return f"Time taken to learn Python for FHIR is {total_duration} hours."
+
+print(learn_python_for_fhir(30, 2))
+
+# --- 4. Simple Loop Through Patient List ---
+patients = ["Ali", "Sara", "John", "Simra"]
+for patient in patients:
+    print(f"Patient {patient} has an appointment today.")
+
+# --- 5. Loop With Dictionaries and Conditions ---
+patients_info = [
+    {"name": "David", "condition": "Diabetes", "time": "8:30 AM"},
+    {"name": "Sam", "condition": "HTN", "time": "9:00 AM"},
+    {"name": "Danial", "condition": "Depression", "time": "9:30 AM"},
+    {"name": "Simra", "condition": "Regular Checkup", "time": "11:00 AM"}
+]
+
+for patient in patients_info:
+    name = patient["name"]
+    condition = patient["condition"]
+    time = patient["time"]
+    if condition == "Regular Checkup":
+        print(f"Patient {name} is scheduled for a regular checkup at {time}.")
+    else:
+        print(f"Patient {name} with {condition} is scheduled at {time}.")
+
+# --- 6. Enumerate Example ---
+for index, name in enumerate(patients):
+    print(f"{index + 1}. {name} - Scheduled for check-up")
+
+# --- 7. While Loop for Dose Reminders ---
+import time
+doses_remaining = 3
+while doses_remaining > 0:
+    print(f"\nReminder: You have {doses_remaining} dose(s) remaining.")
+    response = input("Have you taken your medicine? (yes/no): ").strip().lower()
+    if response == "yes":
+        doses_remaining -= 1
+        print("✅ Dose recorded. Thank you!")
+    elif response == "no":
+        print("⏳ Okay, please take your dose soon.")
+    else:
+        print("❌ Invalid input. Please enter 'yes' or 'no'.")
+    time.sleep(1)
+print("\n🎉 All doses taken for the day. Great job staying on track!")
+
+# --- 8. While Loop for Patient Visit Tracking ---
+def visit_reminder():
+    visits_remaining = 7
+    while visits_remaining > 0:
+        print(f"\nReminder: You have {visits_remaining} visit(s) left in 2025.")
+        response = input("Will you come for the remaining visits? (yes/no): ").strip().lower()
+        if response == "yes":
+            visits_remaining -= 3
+            print("✅ Great! We'll see you then.")
+        elif response == "no":
+            print("❗ Please try to come as it's important for your health.")
+        else:
+            print("❌ Invalid input. Please enter 'yes' or 'no'.")
+        time.sleep(1)
+    print("\n🎉 Amazing! Patient will complete all the visits.")
